@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p id="demo"></p>
+    <script type="text/javascript">
+
+        var apiUrl = 'http://localhost:8080/api/v1/player/3';
+        fetch(apiUrl).then(response => {
+            return response.json();
+        }).then(data => {
+            // Work with JSON data here
+            console.log(data);
+            document.getElementById("demo").innerHTML = JSON.stringify(data) + " ID = " + data.idPlayer + " Name = " + data.namePlayer + " Debt = " + data.debt;
+        }).catch(err => {
+            // Do something for an error here
+        });
+
+    </script>
+
+</body>
+
+</html>
