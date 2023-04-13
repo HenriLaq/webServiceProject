@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Winner </title>
+  <link rel="stylesheet" href="cafe.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+          <div class="logo">
+            <img src="imgs/logo.png" alt="The NPC Gaming Cafe" />
+          </div>
+          <nav>
+            <ul>
+              <li><a href="Home.html">Home</a></li>
+              <li><a href="#game">Games</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#GameBetting">Game Betting</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+
+
+
+        <section class="games" id="game">
+            <div class="container">
+              <h2>PLAYERS</h2>
+              <ul>
+                <li>Get Info of player 1
+                    
+                </li>
+                <script type="text/javascript">
+
+                    var apiUrl = 'http://localhost:8080/api/v1/player/3';
+                    fetch(apiUrl).then(response => {
+                        return response.json();
+                    }).then(data => {
+                        // Work with JSON data here
+                        console.log(data);
+                        document.getElementById("demo").innerHTML = JSON.stringify(data) + " ID = " + data.idPlayer + " Name = " + data.namePlayer + " Debt = " + data.debt;
+                    }).catch(err => {
+                        // Do something for an error here
+                    });
+            
+                </script>
+                <li>Get Info of player 2 </li>
+                <li>Display winner </li></ul>
+            </div>
+        </section>
+
+
+        <script type="text/javascript">
+
+            var apiUrl = 'http://localhost:8080/api/v1/player/3';
+            fetch(apiUrl).then(response => {
+                return response.json();
+            }).then(data => {
+                // Work with JSON data here
+                console.log(data);
+                document.getElementById("demo").innerHTML = JSON.stringify(data) + " ID = " + data.idPlayer + " Name = " + data.namePlayer + " Debt = " + data.debt;
+            }).catch(err => {
+                // Do something for an error here
+            });
+    
+        </script>
+
+
+        <section class="hero">
+          <div class="container">
+            <h1>Hey NPC, <br>
+              Give it another try. Play again! </h1>
+            <p>Play your favorite games and enjoy delicious food and drinks</p>
+            <a href="#booking" class="btn">Book a Time Slot</a>
+          </div>
+        </section>
+    
+        
+        <div class="float-container">
+          <div class="float-child">
+            <section class="menu" id="menu">
+              <div class="container">
+                <h2>FOOD & DRINKS MENU</h2>
+    
+                <form method="post" action="loginServlet">
+                  <label for="food"> <b>Food :</b></label><br>
+    
+                  <input type="checkbox" name="food" value="HotDog"> HotDog
+                  <input type="checkbox" name="food" value="Ramen"> Ramen
+                  <input type="checkbox" name="food" value="Pizza"> Pizza<br>
+    
+                  <label for="Drinks"><b>Drinks :</b></label><br>
+                  <input type="checkbox" name="drinks" value="Milk"> Milk
+                  <input type="checkbox" name="food" value="Soda"> Soda
+                  <input type="checkbox" name="food" value="Milkshake"> Milkshake<br>
+    
+                  <button type="submit" class="btn">Order</button>
+                </form>
+              </div>
+            </section>
+          </div>
+    
+          <div class="float-child">
+            <section class="GameBetting" id="GameBetting">
+              <div class="container">
+                <h2>GAME BETTING </h2>
+    
+                <form method="post" action="http://localhost:8080/api/v1/player/match">
+                  <label for="Player1"> Player 1 </label>
+                  <input type="text" id="name1" name="name1" /><br>
+                  <label for="Player2"> Player 2 </label>
+                  <input type="text" id="name2" name="name2" /><br>
+                  <label for="bet"> Money Bet </label>
+                  <input type="number" id="bet" name="bet" /><br>
+                  <label for="winner"> Winner </label>
+                  <input type="text" id="winner" name="winner" /><br>
+                  <button type="submit" class="btn">Submit to Kratos</button>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+</body>
+
+</html>
