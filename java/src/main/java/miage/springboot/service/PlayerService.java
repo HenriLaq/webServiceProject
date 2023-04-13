@@ -9,7 +9,7 @@ public interface PlayerService {
 	Player findById(Integer id);
 	List<Player> findAllPlayers();
 	Player findByName(String name);
-	void savePlayer(Player e);
+	void savePlayer(String name);
 	void updatePlayer(Player e);
 	void deletePlayerById(long id);
 	

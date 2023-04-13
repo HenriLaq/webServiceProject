@@ -82,9 +82,17 @@ public class PlayerImpl implements PlayerService{
 	}
 
 	@Override
-	public void savePlayer(Player e) {
-		// TODO Auto-generated method stub
-		
+	public void savePlayer(String name) {
+		ArrayList<Integer> ids = new ArrayList<Integer>();
+		for(Player p:players) {
+			ids.add(p.getIdPlayer());
+		}
+		for(int i = 0; i<1000; i++) {
+			if(!ids.contains(i)) {
+				this.players.add(new Player(i, name, 0f));
+				break;
+			}
+		}
 	}
 
 	@Override
