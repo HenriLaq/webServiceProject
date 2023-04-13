@@ -65,15 +65,9 @@
     <section id="booking" class="booking">
       <div class="container">
         <h2>BOOK A TIME SLOT</h2>
-        <form method="post" action="loginServlet">
+        <form method="post" action="http://localhost:8080/api/v1/player/book">
           <label for="date">Date:</label>
-          <input type="date" id="date" name="date" />
-
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time" />
-
-          <label for="players">Number of Players:</label>
-          <input type="number" id="players" name="players" />
+          <input type="datetime-local" id="date" name="date" />
 
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" />
